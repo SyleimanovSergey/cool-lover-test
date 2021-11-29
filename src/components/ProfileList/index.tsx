@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTypeSelector } from 'hooks/useTypeSelector';
 import { getProfiles, getSortParameters } from 'redux/selector';
-import ProfileItem from '../ProfileItem';
+import ProfileItem from 'components/ProfileItem';
 import { ProfileReduceInterface } from 'types/types-redux';
 
 import styles from './index.module.scss';

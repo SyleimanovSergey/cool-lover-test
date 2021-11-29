@@ -3,7 +3,7 @@ import { useTypeSelector } from 'hooks/useTypeSelector';
 import { getProfiles, getSortParameters } from 'redux/selector';
 import { useProfileAction, useSortAction } from 'hooks/useActions';
 
-import { numberRangeAge } from '../../utils/numberRangeAge';
+import { numberRangeAge } from 'utils/numberRangeAge';
 
 import styles from './index.module.scss';
 

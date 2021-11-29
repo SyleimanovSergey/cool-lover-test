@@ -2,7 +2,7 @@ import React from 'react';
 import { ProfileItemInterface } from 'types/types-components';
 import { DateTime, Settings } from 'luxon';
 
-import { typeAge } from '../../utils/typeYears';
+import { typeAge } from 'utils/typeYears';
 
 import styles from './index.module.scss';
 
