@@ -9,8 +9,7 @@ import styles from './index.module.scss';
 
 const Users: React.FC = () => {
 	const [fetching, setFetching] = useState(false);
-	const { fetchProfile, setSortProfile } = useProfileAction();
-	const {} = useProfileAction();
+	const { fetchProfile } = useProfileAction();
 
 	const scrollHandler = () => {
 		if (
@@ -26,6 +25,7 @@ const Users: React.FC = () => {
 
 	useEffect(() => {
 		document.addEventListener('scroll', scrollHandler);
+		document.addEventListener('touchmove', scrollHandler);
 	}, []);
 
 	useEffect(() => {

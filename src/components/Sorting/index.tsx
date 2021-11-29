@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 
 const SortBlock: React.FC = () => {
 	const { age, gender } = useTypeSelector(getSortParameters);
-	const { profiles, sortProfile } = useTypeSelector(getProfiles);
+	const { profiles } = useTypeSelector(getProfiles);
 	const { setSortAge, setSortGender } = useSortAction();
 	const { setSortProfile } = useProfileAction();
 
