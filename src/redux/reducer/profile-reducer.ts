@@ -1,5 +1,8 @@
-import { ActionProfile, ProfileActionsType, ProfileState } from 'types/types-redux';
-
+import {
+	ActionProfile,
+	ProfileActionsType,
+	ProfileState
+} from 'types/types-redux';
 
 const initialState: ProfileState = {
 	loader: false,

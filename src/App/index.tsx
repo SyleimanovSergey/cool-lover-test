@@ -1,9 +1,10 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React from 'react';
 import Users from 'pages/Users';
 import { useProfileAction } from '../hooks/useActions';
 
 const App: React.FC = () => {
-	window.scroll(100, 0);
+	const { fetchProfile } = useProfileAction();
+	fetchProfile();
 	return (
 		<main>
 			<Users />

@@ -1,7 +1,6 @@
 {
 	"env": {
 		"browser": true,
-		"es2021": true,
 		"jest": true
 	},
 	"extends": [
@@ -35,8 +34,7 @@
 		"react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
 		"react/prop-types": 0,
 		"react/require-default-props": "off",
-		"no-shadow": "off",
-		"@typescript-eslint/no-shadow": ["error"],
+		"no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [] }],
 		"import/no-unresolved": "off",
 		"import/extensions": [
 			"error",
@@ -54,7 +52,8 @@
 			}
 		],
 		"react/jsx-props-no-spreading": "off",
-		"jsx-a11y/label-has-associated-control": "off"
+		"jsx-a11y/label-has-associated-control": "off",
+		"react-hooks/exhaustive-deps": "off"
 	},
 	"settings": {
 		"react": {

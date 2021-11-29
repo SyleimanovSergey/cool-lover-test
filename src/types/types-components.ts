@@ -15,6 +15,6 @@ export interface ProfileItemInterface {
 		date: string;
 	};
 	picture: {
-		large: string
+		large: string;
 	};
 }

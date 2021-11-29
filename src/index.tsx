@@ -7,13 +7,11 @@ import store from './redux/store';
 
 import './assets/styles/_reset.scss';
 
-
-
 ReactDOM.render(
-	<React.StrictMode>
+	<React.Fragment>
 		<Provider store={store}>
 			<App />
 		</Provider>
-	</React.StrictMode>,
+	</React.Fragment>,
 	document.getElementById('root')
 );

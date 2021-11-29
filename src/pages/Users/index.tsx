@@ -26,7 +26,6 @@ const Users: React.FC = () => {
 	}, []);
 
 	useEffect(() => {
-		console.log('te');
 		if (fetching) {
 			fetchProfile();
 		}

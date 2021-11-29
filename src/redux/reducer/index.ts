@@ -14,4 +14,4 @@ export const rootReducer = combineReducers({
 	sort: sortReducer
 });
 
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;

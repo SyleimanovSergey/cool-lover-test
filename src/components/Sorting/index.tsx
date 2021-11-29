@@ -1,11 +1,11 @@
 import React, { ChangeEvent, useEffect } from 'react';
-import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { getProfiles, getSortParameters } from '../../redux/selector';
-import { useProfileAction, useSortAction } from '../../hooks/useActions';
+import { useTypeSelector } from 'hooks/useTypeSelector';
+import { getProfiles, getSortParameters } from 'redux/selector';
+import { useProfileAction, useSortAction } from 'hooks/useActions';
+
+import { numberRangeAge } from '../../utils/numberRangeAge';
 
 import styles from './index.module.scss';
-import { numberRangeAge } from '../../utils/numberRangeAge';
-import { profile } from 'console';
 
 const SortBlock: React.FC = () => {
 	const { age, gender } = useTypeSelector(getSortParameters);
@@ -14,8 +14,8 @@ const SortBlock: React.FC = () => {
 	const { setSortProfile } = useProfileAction();
 
 	useEffect(() => {
-		let rangeAge = numberRangeAge(age);
-		let resultSortAge = [];
+		const rangeAge = numberRangeAge(age);
+		let resultSortAge;
 		if (sortProfile.length !== 0) {
 			resultSortAge = sortProfile.filter((profile) =>
 				rangeAge.includes(Number(profile.dob.age))
@@ -49,6 +49,7 @@ const SortBlock: React.FC = () => {
 	return (
 		<div className={styles.sortBlock}>
 			<div className={styles.radioGender}>
+				<p className={styles.title}>Фильтрация по полу </p>
 				<label htmlFor="genderAll">
 					<input
 						type="radio"
@@ -85,42 +86,43 @@ const SortBlock: React.FC = () => {
 				</label>
 			</div>
 			<div className={styles.checkboxAge}>
-				<label>
+				<p className={styles.title}>Фильтрация по возрасту </p>
+				<label className={styles.labelCheckbox}>
 					<input
 						type="checkbox"
-						className={styles.radio}
+						className={styles.checkbox}
 						value="0-18"
 						checked={age.includes('0-18')}
 						onChange={onCheckboxChange}
 					/>
 					0-18
 				</label>
-				<label>
+				<label className={styles.labelCheckbox}>
 					<input
 						type="checkbox"
-						className={styles.radio}
+						className={styles.checkbox}
 						value="18-35"
 						checked={age.includes('18-35')}
 						onChange={onCheckboxChange}
 					/>
 					18-35
 				</label>
-				<label>
+				<label className={styles.labelCheckbox}>
 					<input
 						type="checkbox"
-						className={styles.radio}
+						className={styles.checkbox}
 						value="35-65"
 						checked={age.includes('35-65')}
 						onChange={onCheckboxChange}
 					/>
 					35-65
 				</label>
-				<label>
+				<label className={styles.labelCheckbox}>
 					<input
 						type="checkbox"
-						className={styles.radio}
-						value="65-"
-						checked={age.includes('65-')}
+						className={styles.checkbox}
+						value="65-150"
+						checked={age.includes('65-150')}
 						onChange={onCheckboxChange}
 					/>
 					65+

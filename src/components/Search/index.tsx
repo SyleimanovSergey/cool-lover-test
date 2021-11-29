@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 
 import { useTypeSelector } from 'hooks/useTypeSelector';
 import { useProfileAction, useSortAction } from 'hooks/useActions';
@@ -13,21 +13,19 @@ const Search: React.FC = () => {
 	const { setSortValue } = useSortAction();
 	const { setSortProfile } = useProfileAction();
 
-	let sortListProfile: ProfileReduceInterface[] = [
-		...profiles.filter((profile) => profile.name.first.includes(searchValue))
-		// ...profiles.filter((profile) => profile.name.last.includes(searchValue)),
-		// ...profiles.filter((profile) =>
-		// 	profile.location.city.includes(searchValue)
-		// ),
-		// ...profiles.filter((profile) =>
-		// 	profile.location.country.includes(searchValue)
-		// )
-	];
+	useEffect(() => {
+		const sortListProfile: ProfileReduceInterface[] = [
+			...profiles.filter((profile) =>
+				profile.name.first.toLowerCase().includes(searchValue.toLowerCase())
+			)
+		];
+		console.log(sortListProfile);
+		setSortProfile(sortListProfile);
+	}, [searchValue]);
 
 	const changeInputSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		setSortProfile([]);
 		setSortValue(e.target.value);
-		setSortProfile(sortListProfile);
 	};
 
 	return (

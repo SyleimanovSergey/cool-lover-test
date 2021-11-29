@@ -23,7 +23,6 @@ const ProfileList: React.FC = () => {
 	onTypeSelectList();
 	useEffect(() => onTypeSelectList(), [searchValue, age, gender]);
 
-
 	return (
 		<div className={styles.profileList}>
 			{renderList &&
