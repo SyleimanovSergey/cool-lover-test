@@ -1,0 +1,35 @@
+.profileItem {
+	width: 95%;
+	padding: 10px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	gap: 10px;
+	background-color: #c7d3d4;
+}
+
+.image {
+	width: 45%;
+	border-radius: 50%;
+}
+
+.data {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	gap: 5px;
+}
+
+.textTitle {
+	font-family: sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #808080;
+}
+
+.text {
+	color: #070707;
+	font-weight: 500;
+}
