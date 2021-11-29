@@ -13,15 +13,13 @@ const ProfileList: React.FC = () => {
 
 	const onTypeSelectList = () => {
 		if (sortProfile.length > 0 || searchValue.length > 0 || age.length > 0) {
-			return (renderList = sortProfile);
+			renderList = sortProfile;
 		} else {
-			return profiles.length > 0
-				? (renderList = profiles)
-				: (renderList = JSON.parse(localStorage.getItem('profiles') as string));
+			renderList = profiles;
 		}
 	};
 	onTypeSelectList();
-	useEffect(() => onTypeSelectList(), [searchValue, age, gender]);
+	useEffect(() => onTypeSelectList(), [searchValue, age, gender, sortProfile]);
 
 	return (
 		<div className={styles.profileList}>

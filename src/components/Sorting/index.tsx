@@ -16,34 +16,26 @@ const SortBlock: React.FC = () => {
 	useEffect(() => {
 		const rangeAge = numberRangeAge(age);
 		let resultSortAge;
-		if (sortProfile.length !== 0) {
-			resultSortAge = sortProfile.filter((profile) =>
-				rangeAge.includes(Number(profile.dob.age))
-			);
-			setSortProfile(resultSortAge);
-		} else {
+		if (gender === '') {
 			resultSortAge = profiles.filter((profile) =>
 				rangeAge.includes(Number(profile.dob.age))
 			);
-			setSortProfile(resultSortAge);
-		}
-	}, [age]);
-
-	useEffect(() => {
-		if (gender === '') {
-			setSortProfile(profiles);
+		} else if (rangeAge.length === 0) {
+			resultSortAge = profiles.filter((profile) => profile.gender === gender);
 		} else {
-			setSortProfile(profiles.filter((profile) => profile.gender === gender));
+			resultSortAge = profiles
+				.filter((profile) => profile.gender === gender)
+				.filter((profile) => rangeAge.includes(Number(profile.dob.age)));
 		}
-	}, [gender]);
+		setSortProfile(resultSortAge);
+	}, [age, gender, profiles]);
 
 	const onRadioChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setSortGender(e.target.value);
 	};
 
 	const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { value } = e.target;
-		setSortAge(value);
+		setSortAge(e.target.value);
 	};
 
 	return (

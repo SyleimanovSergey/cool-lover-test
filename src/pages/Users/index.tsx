@@ -9,12 +9,14 @@ import styles from './index.module.scss';
 
 const Users: React.FC = () => {
 	const [fetching, setFetching] = useState(false);
-	const { fetchProfile } = useProfileAction();
+	const { fetchProfile, setSortProfile } = useProfileAction();
+	const {} = useProfileAction();
+
 	const scrollHandler = () => {
 		if (
 			document.documentElement.scrollHeight -
 				(document.documentElement.scrollTop + window.innerHeight) <
-			200
+			50
 		) {
 			setFetching(true);
 		} else {
